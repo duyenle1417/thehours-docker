@@ -1,0 +1,237 @@
+/* LOGIN FORM */
+.login-form,
+.signup-form{
+    width: 380px;
+    height: max-content;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-left: 200px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 9px 1px #cbcfcc;
+}
+
+.add-post-form,
+.edit-post-form
+{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.add-topic-form,
+.edit-topic-form,
+.add-user-form
+{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.edit-user-form,
+.change-pass-form{
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* FORM */
+.form-title{
+    font-weight: 700;
+    text-align: center;
+    font-size: 18pt;
+    padding: 30px 0 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.login-form form,
+.signup-form form{
+    padding: 30px;
+}
+
+.login-form form input, form textarea,
+.signup-form form input, form textarea {
+    width: 100%;
+    padding: 10px 35px 5px;
+    font-size: 16px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #dbd3d3;
+    resize: none;
+    outline: none;
+    line-height: 1.5;
+}
+
+.login-form form input[type="submit"],
+.signup-form form input[type="submit"]{
+    background-color: #2B54C1;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-form form input[type="submit"]:hover,
+.signup-form form input[type="submit"]:hover{
+    transition: 0.5s;
+    background-color: #1c3780;
+    cursor: pointer;
+}
+
+.login-form form .form-input i,
+.signup-form form .form-input i{
+    position: absolute;
+    padding: 20px 10px 0;
+    color: #dbd3d3;
+}
+
+.login-form form input:not([type="submit"]):focus, .login-form form textarea:focus,
+.signup-form form input:not([type="submit"]):focus, .signup-form form textarea:focus {
+    border-bottom: 2px solid #858080;
+    transition: 0.25s;
+}
+
+.login-form form label,
+.signup-form form label{
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.login-form form .row,
+.signup-form form .row{
+    margin: 20px 10px;
+}
+
+.login-form form .row:after,
+.signup-form form .row:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+form .row{
+    margin: 20px 0;
+}
+
+form .row:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.add-post-form form label,
+.edit-post-form form label,
+.add-topic-form form label,
+.edit-topic-form form label,
+.add-user-form form label,
+.edit-user-form form label,
+.change-pass-form form label{
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0 10px;
+}
+
+.add-post-form form input:not([type="submit"]):focus,
+.edit-post-form form input:not([type="submit"]):focus,
+.add-topic-form form input:not([type="submit"]):focus,
+.edit-topic-form form input:not([type="submit"]):focus,
+.add-user-form form input:not([type="submit"]):focus,
+.edit-user-form form input:not([type="submit"]):focus,
+.change-pass-form form input:not([type="submit"]):focus,
+.add-post-form form textarea:focus,
+.edit-post-form form textarea:focus,
+.add-topic-form form textarea:focus,
+.edit-topic-form form textarea:focus,
+.add-user-form form textarea:focus,
+.edit-user-form form textarea:focus,
+.change-pass-form form textarea:focus{
+    border: 1px solid #858080;
+    transition: 0.25s;
+}
+
+.add-post-form form input[type="submit"],
+.edit-post-form form input[type="submit"],
+.add-topic-form form input[type="submit"],
+.edit-topic-form form input[type="submit"],
+.add-user-form form input[type="submit"],
+.edit-user-form form input[type="submit"],
+.change-pass-form form input[type="submit"]{
+    width: auto;
+    padding: 10px 40px;
+    float: right;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #2B54C1;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-post-form form select,
+.edit-post-form form select,
+.add-topic-form form select,
+.edit-topic-form form select,
+.add-user-form form select{
+    width: 60%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.edit-user-form form select,
+.change-pass-form form select{
+    width: 60%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.add-post-form form input,
+.edit-post-form form input,
+.add-topic-form form input,
+.edit-topic-form form input,
+.add-user-form form input,
+.edit-user-form form input,
+.change-pass-form form input,
+.add-post-form form textarea,
+.edit-post-form form textarea,
+.add-topic-form form textarea,
+.edit-topic-form form textarea,
+.add-user-form form textarea,
+.edit-user-form form textarea,
+.change-pass-form form textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    border: 1px solid #dbd3d3;
+    border-radius: 5px;
+    line-height: 1.5;
+}
+
+form:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen and (max-width: 600px){
+    .login-form{
+        width: 300px;
+    }
+
+    form .row{
+        display: block;
+        align-items: unset;
+    }
+
+    form .row .col-25, form .row .col-75{
+        width: 100%;
+        margin-top: 5px;
+    }
+}

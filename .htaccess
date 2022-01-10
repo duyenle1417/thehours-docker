@@ -1,0 +1,48 @@
+DirectoryIndex /src/index.php
+RewriteEngine On
+
+# custom url
+RewriteRule ^article/(.*)/(.*) src/article.php?id=$1&slug=$2
+
+RewriteRule ^profile/(.*) src/profile.php?id=$1
+
+RewriteRule ^change-password/(.*) src/change-password.php?id=$1
+
+RewriteRule ^category/(.*) src/category.php?id=$1
+
+RewriteRule ^dashboard src/admin/dashboard.php
+
+RewriteRule ^login src/login.php
+
+RewriteRule ^signup src/signup.php
+
+RewriteRule ^logout src/logout.php
+
+# custom url admin/article
+RewriteRule ^delete-post/(.*) src/admin/article/?delete_id=$1
+RewriteRule ^publish-toggle/(.*)/(.*) src/admin/article/?PublishToggleId=$1&IsPublished=$2
+RewriteRule ^edit-post/(.*) src/admin/article/edit.php?id=$1
+RewriteRule ^add-post src/admin/article/add.php
+RewriteRule ^manage-posts src/admin/article/
+
+# custom url admin/topic
+RewriteRule ^delete-category/(.*) src/admin/topic/?delete_id=$1
+RewriteRule ^edit-category/(.*) src/admin/topic/edit.php?id=$1
+RewriteRule ^add-category src/admin/topic/add.php
+RewriteRule ^manage-categories src/admin/topic/
+
+# custom url admin/user
+RewriteRule ^delete-user/(.*) src/admin/user/?delete_id=$1
+RewriteRule ^edit-user/(.*) src/admin/user/edit.php?id=$1
+RewriteRule ^add-user src/admin/user/add.php
+RewriteRule ^manage-users src/admin/user/
+
+# xóa extension .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+
+
+
+

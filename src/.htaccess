@@ -1,0 +1,42 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+# custom url
+RewriteRule ^article/(.*)/(.*) article.php?id=$1&slug=$2
+
+RewriteRule ^profile/(.*) profile.php?id=$1
+
+RewriteRule ^change-password/(.*) change-password.php?id=$1
+
+RewriteRule ^category/(.*) category.php?id=$1
+
+RewriteRule ^dashboard admin/dashboard.php
+
+# custom url admin/article
+RewriteRule ^delete-post/(.*) admin/article/?delete_id=$1
+RewriteRule ^publish-toggle/(.*)/(.*) admin/article/?PublishToggleId=$1&IsPublished=$2
+RewriteRule ^edit-post/(.*) admin/article/edit.php?id=$1
+RewriteRule ^add-post admin/article/add.php
+RewriteRule ^manage-posts admin/article/
+
+# custom url admin/topic
+RewriteRule ^delete-category/(.*) admin/topic/?delete_id=$1
+RewriteRule ^edit-category/(.*) admin/topic/edit.php?id=$1
+RewriteRule ^add-category admin/topic/add.php
+RewriteRule ^manage-categories admin/topic/
+
+# custom url admin/user
+RewriteRule ^delete-user/(.*) admin/user/?delete_id=$1
+RewriteRule ^edit-user/(.*) admin/user/edit.php?id=$1
+RewriteRule ^add-user admin/user/add.php
+RewriteRule ^manage-users admin/user/
+
+# xóa extension .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+
+
+
+

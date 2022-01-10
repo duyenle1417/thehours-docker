@@ -1,0 +1,74 @@
+type: Microsoft.ContainerInstance/containerGroups
+apiVersion: 2019-12-01
+location: eastus
+tags: {Name: thehours}
+name: thehours_group_container
+properties:
+  containers:
+  - name: website
+    properties:
+      image: thehoursregistry.azurecr.io/php
+      resources:
+        requests:
+          cpu: 2
+          memoryInGb: 2
+      ports:
+      - protocol: tcp
+        port: 80
+      volumeMounts:
+        - mountPath: /var/www/html/uploads/images #change later
+          name: thehours
+  - name: mysql
+    properties:
+      image: mysql
+      ports:
+      - protocol: tcp
+        port: 3306
+      environmentVariables:
+      - name: MYSQL_ROOT_PASSWORD
+        value: 'root'
+      - name: MYSQL_USER
+        value: admin
+      - name: MYSQL_PASSWORD
+        value: admin
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mysql
+  - name: adminer
+    properties:
+      image: adminer
+      ports:
+      - protocol: tcp
+        port: 8080
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: 80
+    - protocol: tcp
+      port: 8080
+    dnsNameLabel: thehours
+  volumes:
+   - name: thehours
+     azureFile:
+       sharename: thehours
+       storageAccountName: thehoursstorage
+       storageAccountKey: 7DqitI6ZMuaNp2/P72YVwtZVRL5sC5GMiXNtDYT9IxxSXekeFFWcseZRxRs2u4ztE2wect1C4iUZNAYckGa+OA==
+   - name: mysql
+     azureFile:
+       sharename: mysql
+       storageAccountName: thehoursstorage
+       storageAccountKey: 7DqitI6ZMuaNp2/P72YVwtZVRL5sC5GMiXNtDYT9IxxSXekeFFWcseZRxRs2u4ztE2wect1C4iUZNAYckGa+OA==
+  imageRegistryCredentials:
+    - server: thehoursregistry.azurecr.io
+      username: thehoursregistry
+      password: a29venaYDyCMb7SRNk83/w1LIHyBPfl9

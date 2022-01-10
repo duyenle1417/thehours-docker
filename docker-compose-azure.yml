@@ -1,0 +1,47 @@
+version: '3.9'
+services:
+  website:
+    image: thehoursregistry.azurecr.io/php
+    container_name: php-apache
+    domainname: "thehours"
+    volumes:
+      - thehours:/var/www/html
+    ports:
+      - 80:80
+    depends_on:
+      - db
+      - adminer
+    links:
+      - db
+  db:
+    image: thehoursregistry.azurecr.io/mysql
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_TCP_PORT: 3306
+    volumes:
+      - mysql:/var/lib/mysql
+  adminer:
+    image: thehoursregistry.azurecr.io/adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db
+volumes:
+  mysql:
+    driver: azure_file
+    driver_opts:
+      share_name: mysql2
+      storage_account_name: thehoursstorage
+  thehours:
+    driver: azure_file
+    driver_opts:
+      share_name: thehours
+      storage_account_name: thehoursstorage

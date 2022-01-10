@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  website:
+    #image: php:8.0-apache
+    container_name: php-apache
+    build:
+      context: .
+      dockerfile: ./Dockerfilephp
+    restart: on-failure
+    volumes:
+      - ./src:/var/www/html/src
+      - ./uploads:/var/www/html/uploads
+      - ./.htaccess:/var/www/html/.htaccess
+    ports:
+      - 80:80
+    depends_on:
+      - db
+      - phpmyadmin
+    links:
+      - db
+  db:
+    image: mysql
+    container_name: mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_TCP_PORT: 3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    restart: on-failure
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    depends_on:
+      - db
+    links:
+      - db

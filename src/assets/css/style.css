@@ -1,0 +1,191 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* SCROLLBAR */
+body::-webkit-scrollbar{
+    width: 6px;
+}
+
+body::-webkit-scrollbar-track{
+    background-color: #ebebeb;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: #c2c2c2;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background-color: #a8a6a6;
+    transition: 0.25s;
+}
+
+/* HEADER */
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.header .thehours-logo{
+    margin: 30px auto 15px;
+    text-decoration: none;
+    color: #0E1C40;
+}
+
+.header .thehours-logo .main-title{
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.header .main-title::after{
+    content: "";
+    position: absolute;
+    border-left: 3px solid #0E1C40;
+    height: 31px;
+    margin: 2px 5px;
+}
+
+.header .thehours-logo .sub-title{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+/* WEB's content */
+.app__container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* PATH LIBRARY */
+.path-library{
+    padding: 15px;
+    margin: 24px auto 15px;
+    background-color: var(--white-color);
+    box-shadow: 1px 3px 7px #e0e0e0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.path-library a{
+    text-decoration: none;
+}
+
+/* MENU */
+nav{
+    display: flex;
+    background-color: #2B54C1;
+    justify-content: center;
+}
+
+#main-menu{
+    list-style-type: none;
+}
+
+#main-menu li{
+    text-align: left;
+}
+
+#main-menu li::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#main-menu li a{
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#main-menu > li{
+    float: left;
+}
+
+#main-menu > li > a{
+    color: white;
+    background-color: #2B54C1;
+    border: 2px solid #2B54C1;
+    padding: 10px 20px;
+    margin: 2px;
+    text-transform: uppercase;
+}
+
+#main-menu > li:hover >a{
+    border-bottom: 2px solid white;
+    font-style: italic;
+    transition: 0.5s;
+}
+
+/* MENU Dropdown menu submenu */
+#main-menu > li .sub-menu{
+    display: none;
+}
+
+#main-menu > li .sub-menu ul{
+    list-style-type: none;
+    position: absolute;
+    width: 200px;
+    box-shadow: 1px 3px 7px #e0e0e0;
+    background-color: #ffffff;
+}
+
+#main-menu > li .sub-menu li > a{
+    background-color: #2B54C1;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+#main-menu > li:hover .sub-menu{
+    display: block;
+}
+
+#main-menu > li .sub-menu li:hover >a{
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 30px;/* hiệu ứng */
+    background-color: #466cd6;
+    text-decoration: underline;
+    text-transform: none;
+    transition: 0.5s;
+}
+
+/* MSG */
+.msg{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 2px;
+    list-style-type: none;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+.error{
+    border: 1px solid #ff5b5b;
+    background-color: #fda8a8;
+    color: #d81616;
+}
+
+.success{
+    border: 1px solid #7bc1d3;
+    background-color: #bae1e7;
+    color: #3e41ee;
+}
+
